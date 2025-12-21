@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Koans (-B)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/contemplate_koans.py",
+            "pythonArgs": [
+                "-B"
+            ],
+            "console": "internalConsole"
+        }
+    ]
+}
