@@ -3,6 +3,7 @@
 
 from runner.koan import *
 
+
 class AboutExceptions(Koan):
 
     class MySpecialError(RuntimeError):
@@ -20,7 +21,7 @@ class AboutExceptions(Koan):
         try:
             self.fail("Oops")
         except Exception as ex:
-            result = 'exception handled'
+            result = "exception handled"
 
             ex2 = ex
 
@@ -29,8 +30,10 @@ class AboutExceptions(Koan):
         self.assertEqual(__, isinstance(ex2, Exception))
         self.assertEqual(__, isinstance(ex2, RuntimeError))
 
-        self.assertTrue(issubclass(RuntimeError, Exception), \
-            "RuntimeError is a subclass of Exception")
+        self.assertTrue(
+            issubclass(RuntimeError, Exception),
+            "RuntimeError is a subclass of Exception",
+        )
 
         self.assertEqual(__, ex2.args[0])
 
@@ -39,7 +42,7 @@ class AboutExceptions(Koan):
         try:
             raise self.MySpecialError("My Message")
         except self.MySpecialError as ex:
-            result = 'exception handled'
+            result = "exception handled"
             msg = ex.args[0]
 
         self.assertEqual(__, result)
@@ -50,13 +53,12 @@ class AboutExceptions(Koan):
         try:
             pass
         except RuntimeError:
-            result = 'it broke'
+            result = "it broke"
             pass
         else:
-            result = 'no damage done'
+            result = "no damage done"
 
         self.assertEqual(__, result)
-
 
     def test_finally_clause(self):
         result = None
@@ -66,6 +68,6 @@ class AboutExceptions(Koan):
             # no code here
             pass
         finally:
-            result = 'always run'
+            result = "always run"
 
         self.assertEqual(__, result)

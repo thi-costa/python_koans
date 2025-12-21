@@ -3,6 +3,7 @@
 
 from runner.koan import *
 
+
 class AboutStrings(Koan):
 
     def test_double_quoted_strings_are_strings(self):
@@ -10,7 +11,7 @@ class AboutStrings(Koan):
         self.assertEqual(True, isinstance(string, str))
 
     def test_single_quoted_strings_are_also_strings(self):
-        string = 'Goodbye, world.'
+        string = "Goodbye, world."
         self.assertEqual(True, isinstance(string, str))
 
     def test_triple_quote_strings_are_also_strings(self):
@@ -18,7 +19,7 @@ class AboutStrings(Koan):
         self.assertEqual(True, isinstance(string, str))
 
     def test_triple_single_quotes_work_too(self):
-        string = '''Bonjour tout le monde!'''
+        string = """Bonjour tout le monde!"""
         self.assertEqual(True, isinstance(string, str))
 
     def test_raw_strings_are_also_strings(self):
@@ -34,7 +35,7 @@ class AboutStrings(Koan):
         self.assertEqual("Don't", string)
 
     def test_use_backslash_for_escaping_quotes_in_strings(self):
-        a = "He said, \"Don't\""
+        a = 'He said, "Don\'t"'
         b = 'He said, "Don\'t"'
         self.assertEqual(True, (a == b))
 
@@ -51,13 +52,13 @@ world!
         self.assertEqual(1 + 6 + 1 + 6 + 1, len(string))
 
     def test_triple_quoted_strings_need_less_escaping(self):
-        a = "Hello \"world\"."
+        a = 'Hello "world".'
         b = """Hello "world"."""
         self.assertEqual(True, (a == b))
 
     def test_escaping_quotes_at_the_end_of_triple_quoted_string(self):
         string = """Hello "world\""""
-        self.assertEqual("Hello \"world\"", string)
+        self.assertEqual('Hello "world"', string)
 
     def test_plus_concatenates_strings(self):
         string = "Hello, " + "world"
@@ -89,6 +90,6 @@ world!
 
     def test_most_strings_interpret_escape_characters(self):
         string = "\n"
-        self.assertEqual('\n', string)
+        self.assertEqual("\n", string)
         self.assertEqual("""\n""", string)
         self.assertEqual(1, len(string))

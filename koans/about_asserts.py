@@ -3,6 +3,7 @@
 
 from runner.koan import *
 
+
 class AboutAsserts(Koan):
 
     def test_assert_truth(self):
@@ -14,7 +15,7 @@ class AboutAsserts(Koan):
         #
         #   http://bit.ly/about_asserts
 
-        self.assertTrue(True) # This should be True
+        self.assertTrue(True)  # This should be True
 
     def test_assert_with_message(self):
         """
@@ -78,4 +79,3 @@ class AboutAsserts(Koan):
         # Need an illustration? More reading can be found here:
         #
         #   https://github.com/gregmalcolm/python_koans/wiki/Class-Attribute
-

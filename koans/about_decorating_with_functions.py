@@ -6,7 +6,7 @@ from runner.koan import *
 
 class AboutDecoratingWithFunctions(Koan):
     def addcowbell(fn):
-        fn.wow_factor = 'COWBELL BABY!'
+        fn.wow_factor = "COWBELL BABY!"
         return fn
 
     @addcowbell
@@ -21,7 +21,8 @@ class AboutDecoratingWithFunctions(Koan):
 
     def xmltag(fn):
         def func(*args):
-            return '<' + fn(*args) + '/>'
+            return "<" + fn(*args) + "/>"
+
         return func
 
     @xmltag
@@ -29,4 +30,4 @@ class AboutDecoratingWithFunctions(Koan):
         return name
 
     def test_decorators_can_change_a_function_output(self):
-        self.assertEqual(__, self.render_tag('llama'))
+        self.assertEqual(__, self.render_tag("llama"))

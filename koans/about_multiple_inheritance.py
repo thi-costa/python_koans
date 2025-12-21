@@ -7,6 +7,7 @@
 
 from runner.koan import *
 
+
 class AboutMultipleInheritance(Koan):
     class Nameable:
         def __init__(self):
@@ -41,7 +42,7 @@ class AboutMultipleInheritance(Koan):
             return "OINK"
 
         def color(self):
-            return 'pink'
+            return "pink"
 
         def here(self):
             return "In Pig class"
@@ -58,7 +59,7 @@ class AboutMultipleInheritance(Koan):
             return 8
 
         def color(self):
-            return 'black'
+            return "black"
 
         def here(self):
             return "In Spider class"
@@ -117,8 +118,8 @@ class AboutMultipleInheritance(Koan):
         # MRO = Method Resolution Order
         #
         mro = type(self.Spiderpig()).mro()
-        self.assertEqual('Spiderpig', mro[0].__name__)
-        self.assertEqual('Pig', mro[1].__name__)
+        self.assertEqual("Spiderpig", mro[0].__name__)
+        self.assertEqual("Pig", mro[1].__name__)
         self.assertEqual(__, mro[2].__name__)
         self.assertEqual(__, mro[3].__name__)
         self.assertEqual(__, mro[4].__name__)
@@ -126,10 +127,10 @@ class AboutMultipleInheritance(Koan):
 
     def test_confirm_the_mro_controls_the_calling_order(self):
         jeff = self.Spiderpig()
-        self.assertRegex(jeff.here(), 'Spiderpig')
+        self.assertRegex(jeff.here(), "Spiderpig")
 
         next = super(AboutMultipleInheritance.Spiderpig, jeff)
-        self.assertRegex(next.here(), 'Pig')
+        self.assertRegex(next.here(), "Pig")
 
         next = super(AboutMultipleInheritance.Pig, jeff)
         self.assertRegex(next.here(), __)

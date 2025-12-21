@@ -10,11 +10,12 @@
 
 from runner.koan import *
 
+
 class AboutGenerators(Koan):
 
     def test_generating_values_on_the_fly(self):
         result = list()
-        bacon_generator = (n + ' bacon' for n in ['crunchy','veggie','danish'])
+        bacon_generator = (n + " bacon" for n in ["crunchy", "veggie", "danish"])
 
         for bacon in bacon_generator:
             result.append(bacon)
@@ -22,13 +23,14 @@ class AboutGenerators(Koan):
         self.assertEqual(__, result)
 
     def test_generators_are_different_to_list_comprehensions(self):
-        num_list = [x*2 for x in range(1,3)]
-        num_generator = (x*2 for x in range(1,3))
+        num_list = [x * 2 for x in range(1, 3)]
+        num_generator = (x * 2 for x in range(1, 3))
 
         self.assertEqual(2, num_list[0])
 
         # A generator has to be iterated through.
-        with self.assertRaises(___): num = num_generator[0]
+        with self.assertRaises(___):
+            num = num_generator[0]
 
         self.assertEqual(__, list(num_generator)[0])
 
@@ -39,7 +41,7 @@ class AboutGenerators(Koan):
         # Generators are more memory friendly, but less versatile
 
     def test_generator_expressions_are_a_one_shot_deal(self):
-        dynamite = ('Boom!' for n in range(3))
+        dynamite = ("Boom!" for n in range(3))
 
         attempt1 = list(dynamite)
         attempt2 = list(dynamite)
@@ -50,10 +52,10 @@ class AboutGenerators(Koan):
     # ------------------------------------------------------------------
 
     def simple_generator_method(self):
-        yield 'peanut'
-        yield 'butter'
-        yield 'and'
-        yield 'jelly'
+        yield "peanut"
+        yield "butter"
+        yield "and"
+        yield "jelly"
 
     def test_generator_method_will_yield_values_during_iteration(self):
         result = list()
@@ -74,7 +76,7 @@ class AboutGenerators(Koan):
             yield x * x
 
     def test_generator_method_with_parameter(self):
-        result = self.square_me(range(2,5))
+        result = self.square_me(range(2, 5))
         self.assertEqual(__, list(result))
 
     # ------------------------------------------------------------------
@@ -87,7 +89,7 @@ class AboutGenerators(Koan):
             yield value
 
     def test_generator_keeps_track_of_local_variables(self):
-        result = self.sum_it(range(2,5))
+        result = self.sum_it(range(2, 5))
         self.assertEqual(__, list(result))
 
     # ------------------------------------------------------------------
@@ -123,12 +125,12 @@ class AboutGenerators(Koan):
         if value:
             yield value
         else:
-            yield 'no value'
+            yield "no value"
 
     def test_generators_can_see_if_they_have_been_called_with_a_value(self):
         generator = self.yield_tester()
         next(generator)
-        self.assertEqual('with value', generator.send('with value'))
+        self.assertEqual("with value", generator.send("with value"))
 
         generator2 = self.yield_tester()
         next(generator2)

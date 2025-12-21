@@ -7,9 +7,9 @@ from runner.koan import *
 class AboutTrueAndFalse(Koan):
     def truth_value(self, condition):
         if condition:
-            return 'true stuff'
+            return "true stuff"
         else:
-            return 'false stuff'
+            return "false stuff"
 
     def test_true_is_treated_as_true(self):
         self.assertEqual(__, self.truth_value(True))
@@ -36,8 +36,6 @@ class AboutTrueAndFalse(Koan):
         self.assertEqual(__, self.truth_value(1))
         self.assertEqual(__, self.truth_value([0]))
         self.assertEqual(__, self.truth_value((0,)))
-        self.assertEqual(
-            __,
-            self.truth_value("Python is named after Monty Python"))
-        self.assertEqual(__, self.truth_value(' '))
-        self.assertEqual(__, self.truth_value('0'))
+        self.assertEqual(__, self.truth_value("Python is named after Monty Python"))
+        self.assertEqual(__, self.truth_value(" "))
+        self.assertEqual(__, self.truth_value("0"))

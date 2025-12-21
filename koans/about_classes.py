@@ -21,7 +21,7 @@ class AboutClasses(Koan):
 
     class Dog2:
         def __init__(self):
-            self._name = 'Paul'
+            self._name = "Paul"
 
         def set_name(self, a_name):
             self._name = a_name
