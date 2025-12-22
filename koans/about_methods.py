@@ -88,7 +88,7 @@ class AboutMethods(Koan):
 
     # ------------------------------------------------------------------
 
-    def another_method_with_the_same_name(self): # type: ignore
+    def another_method_with_the_same_name(self):  # type: ignore
         return 10
 
     link_to_overlapped_method = another_method_with_the_same_name
@@ -132,7 +132,10 @@ class AboutMethods(Koan):
         return "ok"
 
     def test_the_documentation_can_be_viewed_with_the_doc_method(self):
-        self.assertRegex(self.method_with_documentation.__doc__, "A string placed at the beginning of a function is used for documentation")
+        self.assertRegex(
+            self.method_with_documentation.__doc__,
+            "A string placed at the beginning of a function is used for documentation",
+        )
 
     # ------------------------------------------------------------------
 
