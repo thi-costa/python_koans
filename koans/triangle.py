@@ -17,14 +17,26 @@
 # and
 #   about_triangle_project_2.py
 #
-def triangle(a, b, c):
-    if a == b and b == c:
-        return "equilateral"
-    elif a == b or b == c or a == c:
-        return "isosceles"
-    return "scalene"
 
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
     pass
+
+
+def triangle(a, b, c):
+    if a <= 0 or b <= 0 or c <= 0:
+        raise TriangleError("All sides should be greater than 0")
+
+    sides = sorted([a, b, c])
+
+    if sides[0] + sides[1] <= sides[2]:
+        raise TriangleError(
+            "The sum of any two sides should be greater than the third one"
+        )
+
+    if a == b and b == c:
+        return "equilateral"
+    elif a == b or b == c or a == c:
+        return "isosceles"
+    return "scalene"
